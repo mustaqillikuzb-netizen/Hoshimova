@@ -45,7 +45,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_names[str(user_id)] = user_name
         save_data()
         await context.bot.send_message(chat_id=ADMIN_ID, text=f"🆕 Yangi foydalanuvchi: {user_name}\nID: {user_id}")
-    await update.message.reply_text("🔒 Bot ishlayapti")
+    await update.message.reply_text("🔒 Bot ishlayapti. Xabarlaringiz adminga boradi.")
 
 async def clear_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
@@ -54,13 +54,13 @@ async def clear_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_links = {}
     user_names = {}
     save_data()
-    await update.message.reply_text("✅ Tozalandi")
+    await update.message.reply_text("✅ Barcha ma'lumotlar o'chirildi!")
 
 async def users_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         return
     if not user_names:
-        await update.message.reply_text("📭 Foydalanuvchi yo'q")
+        await update.message.reply_text("📭 Hozircha foydalanuvchi yo'q")
         return
     text = "📋 Foydalanuvchilar:\n\n"
     for uid, name in user_names.items():
