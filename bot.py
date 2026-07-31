@@ -34,7 +34,7 @@ def run_flask():
 
 # ========== AVTO-PING (24/7 UXLATMASLIK UCHUN) ==========
 def keep_alive():
-    """Bot uxlab qolmasligi uchun har 10 daqiqada o'ziga so'rov yuboradi"""
+    """Bot uxlab qolmasligi uchun har 2 daqiqada o'ziga so'rov yuboradi"""
     time.sleep(20) # Server to'liq ishga tushishi uchun kutish
     while True:
         try:
@@ -43,8 +43,8 @@ def keep_alive():
         except Exception as e:
             print(f"Ping xatoligi: {e}")
         
-        # Har 10 daqiqada (600 soniya) bir marta takrorlanadi
-        time.sleep(600)
+        # Har 2 daqiqada (120 soniya) bir marta takrorlanadi
+        time.sleep(120)
 
 # ========== YORDAMCHI FUNKSIYALAR ==========
 def load_data():
